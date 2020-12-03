@@ -1,10 +1,10 @@
 import React from 'react';
-import { Header } from './components';
+import { AppHeader } from './components';
 
 const App = (props) => {
   return (
     <>
-      <Header />
+      <AppHeader />
     </>
   );
 };
