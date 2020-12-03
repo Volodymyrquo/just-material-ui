@@ -6,8 +6,11 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons';
+import MenuIcon from '@material-ui/icons/Menu';
+import useStyles from './styles';
+
 const AppHeader = () => {
+  const classes = useStyles();
   return (
     <AppBar position='static'>
       <Toolbar>
