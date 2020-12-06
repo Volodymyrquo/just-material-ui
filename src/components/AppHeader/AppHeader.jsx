@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  AppBar,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography,
-} from '@material-ui/core';
+import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
 import useStyles from './styles';
 import AppMenu from './AppMenu';
 import AppDrawer from './AppDrawer';

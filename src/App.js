@@ -1,10 +1,12 @@
 import React from 'react';
-import { AppHeader } from './components';
+import { AppButtons, AppHeader, AppList } from './components';
 
 const App = (props) => {
   return (
     <>
       <AppHeader />
+      <AppButtons />
+      <AppList />
     </>
   );
 };

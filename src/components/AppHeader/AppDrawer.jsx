@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 const AppDrawer = () => {
   const classes = useStyles();
-  const [state, setState] = useState({ left: false });
+  const [state, setState] = useState({ isOpen: false });
 
   const toggleDrawer = (anchor) => (event) => {
     if (
