@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppButtons, AppHeader, AppList } from './components';
+import { AppButtons, AppHeader, AppList, CheckList } from './components';
 
 const App = (props) => {
   return (
@@ -7,6 +7,7 @@ const App = (props) => {
       <AppHeader />
       <AppButtons />
       <AppList />
+      {/* <CheckList /> */}
     </>
   );
 };

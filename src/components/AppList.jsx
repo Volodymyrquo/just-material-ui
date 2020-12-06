@@ -11,44 +11,48 @@ import React, { useState } from 'react';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 
+const listArray = [
+  {
+    name: 'Element 1',
+    description: 'Complicated description 1',
+    checked: false,
+  },
+  {
+    name: 'Element 2',
+    description: 'Complicated description 2',
+    checked: false,
+  },
+  {
+    name: 'Element 3',
+    description: 'Complicated description 3',
+    checked: false,
+  },
+  {
+    name: 'Element 4',
+    description: 'Complicated description 4',
+    checked: false,
+  },
+];
+
 const AppList = () => {
-  const [state, setState] = useState([1]);
-  const handleToggle = (item) => () => {
-    const currentIndex = state.indexOf(item);
-    const newState = [...state];
+  const [checked, setChecked] = useState([]);
+
+  const handleToggle = (value) => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
 
     if (currentIndex === -1) {
-      newState.push(item);
+      newChecked.push(value);
     } else {
-      newState.splice(currentIndex, 1);
+      newChecked.splice(currentIndex, 1);
     }
 
-    setState(newState);
+    setChecked(newChecked);
   };
+
   return (
     <List component='nav' aria-label='main mailbox folders'>
-      {[
-        {
-          name: 'Element 1',
-          description: 'Complicated description 1',
-          checked: false,
-        },
-        {
-          name: 'Element 2',
-          description: 'Complicated description 2',
-          checked: false,
-        },
-        {
-          name: 'Element 3',
-          description: 'Complicated description 3',
-          checked: false,
-        },
-        {
-          name: 'Element 4',
-          description: 'Complicated description 4',
-          checked: false,
-        },
-      ].map((item, idx) => {
+      {listArray.map((item, idx) => {
         return (
           <div key={idx}>
             <ListItem button>
@@ -65,7 +69,7 @@ const AppList = () => {
                 <Checkbox
                   edge='end'
                   onChange={handleToggle(idx)}
-                  checked={state.indexOf(item) !== -1}
+                  checked={checked.indexOf(idx) !== -1}
                   inputProps={{ 'aria-labelledby': idx }}
                 />
               </ListItemSecondaryAction>
