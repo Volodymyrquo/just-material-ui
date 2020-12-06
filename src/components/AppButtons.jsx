@@ -5,23 +5,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     margin: '40px auto',
-    background: '#8bc34a',
   },
   button: {
     padding: theme.spacing(10),
   },
 }));
-const AppButtons = () => {
+const AppButtons = ({ state, deleteElement }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Grid container justify='center' spacing={2}>
-        <Grid
-          item
-          xs={12}
-          md={4}
-          style={{ background: 'yellow' }}
-          className={classes.button}>
+        <Grid item xs={12} md={4} className={classes.button}>
           <Grid container justify='center'>
             <Button
               variant='contained'
@@ -34,24 +28,21 @@ const AppButtons = () => {
             </Button>
           </Grid>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={4}
-          style={{ background: 'blue' }}
-          className={classes.button}>
+        <Grid item xs={12} md={4} className={classes.button}>
           <Grid container justify='center'>
             <Button
               variant='contained'
+              disabled={
+                state.map((item) => item.checked).filter((item) => item)
+                  .length === 0
+              }
               color='secondary'
-              onClick={() => {
-                console.log('Clicked Delete checked element');
-              }}>
+              onClick={deleteElement}>
               Delete checked element
             </Button>
           </Grid>
         </Grid>
-        <Grid item xs={12} md={4} style={{ background: 'pink' }}>
+        <Grid item xs={12} md={4}>
           <Grid container justify='center'>
             <Button
               href='https://google.com.ua/'
