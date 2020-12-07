@@ -24,7 +24,6 @@ const App = (props) => {
       checked: false,
     },
   ]);
-
   return (
     <>
       <AppHeader />
