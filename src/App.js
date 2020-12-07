@@ -29,10 +29,10 @@ const App = (props) => {
       <AppHeader />
       <AppButtons
         state={state}
+        setState={setState}
         deleteElement={() => {
           const newState = state.filter((item) => !item.checked);
           setState(newState);
-          console.log(newState);
         }}
       />
       <AppList state={state} setState={setState} />

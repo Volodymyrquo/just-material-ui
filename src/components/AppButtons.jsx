@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Grid,
-  Icon,
-  IconButton,
-  Popover,
-  Typography,
-} from '@material-ui/core';
+import { Button, Grid, Icon, IconButton, Popover } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/AddCircle';
+import AppForm from './AppForm';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,11 +12,8 @@ const useStyles = makeStyles((theme) => ({
   button: {
     padding: theme.spacing(10),
   },
-  typography: {
-    padding: theme.spacing(2),
-  },
 }));
-const AppButtons = ({ state, deleteElement }) => {
+const AppButtons = ({ state, deleteElement, setState }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -94,7 +85,7 @@ const AppButtons = ({ state, deleteElement }) => {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
-        style={{ width: 300, padding: '15px 30px' }}
+        style={{ width: 300, padding: '15px 20px' }}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'center',
@@ -103,9 +94,7 @@ const AppButtons = ({ state, deleteElement }) => {
           vertical: 'top',
           horizontal: 'center',
         }}>
-        <Typography className={classes.typography}>
-          The content of the Popover.
-        </Typography>
+        <AppForm setState={setState} state={state} handleClose={handleClose} />
       </Popover>
     </div>
   );
