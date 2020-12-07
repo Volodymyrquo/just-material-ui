@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Grid, Icon, IconButton, Popover } from '@material-ui/core';
+import { Button, Grid, Icon, Popover, Snackbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/AddCircle';
 import AppForm from './AppForm';
+import AppDialog from './AppDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,13 +73,7 @@ const AppButtons = ({ state, deleteElement, setState }) => {
           </Grid>
         </Grid>
       </Grid>
-      <IconButton
-        style={{ position: 'fixed', right: 50, bottom: 50 }}
-        onClick={() => {
-          console.log('Clicked IconButton');
-        }}>
-        <AddIcon color='primary' fontSize='large' />
-      </IconButton>
+
       <Popover
         id={id}
         open={open}
@@ -96,6 +90,7 @@ const AppButtons = ({ state, deleteElement, setState }) => {
         }}>
         <AppForm setState={setState} state={state} handleClose={handleClose} />
       </Popover>
+      <AppDialog />
     </div>
   );
 };
