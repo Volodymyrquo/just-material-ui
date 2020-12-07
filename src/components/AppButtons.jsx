@@ -3,6 +3,7 @@ import { Button, Grid, Icon, Popover, Snackbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AppForm from './AppForm';
 import AppDialog from './AppDialog';
+import AppSnackBar from './AppSnackBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +28,18 @@ const AppButtons = ({ state, deleteElement, setState }) => {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
+  const [openSnackBar, setOpenSnackBar] = useState(false);
 
+  const handleClickSnackBar = () => {
+    setOpenSnackBar(true);
+  };
+  const handleCloseSnackBar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnackBar(false);
+  };
   return (
     <div className={classes.root}>
       <Grid container justify='center' spacing={2}>
@@ -90,7 +102,8 @@ const AppButtons = ({ state, deleteElement, setState }) => {
         }}>
         <AppForm setState={setState} state={state} handleClose={handleClose} />
       </Popover>
-      <AppDialog />
+      <AppDialog handleClickSnackBar={handleClickSnackBar} />
+      <AppSnackBar open={openSnackBar} handleClose={handleCloseSnackBar} />
     </div>
   );
 };
